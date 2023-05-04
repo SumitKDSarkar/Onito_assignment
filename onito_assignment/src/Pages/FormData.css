@@ -1,0 +1,91 @@
+.form {
+  width: 80%;
+  margin: auto;
+  margin-top: 5%;
+  border: 2px solid black;
+  height: 500px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.second_main_div {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+p {
+  color: red;
+}
+
+h4 {
+  color: red;
+}
+.select_details {
+  border: 1px solid black;
+  margin-top: 3px;
+}
+.input_details {
+  border: 1px solid black;
+}
+.Personal-details {
+  text-align: start;
+  padding-left: 2.5%;
+  font-weight: 700;
+  margin-top: 2%;
+}
+.contact-Details {
+  text-align: start;
+  padding-left: 2.5%;
+  margin-top: 2%;
+  font-weight: 700;
+}
+.address-Details {
+  text-align: start;
+  padding-left: 2.5%;
+  margin-top: 2%;
+  font-weight: 700;
+}
+.other-Details {
+  text-align: start;
+  padding-left: 2.5%;
+  margin-top: 2%;
+  font-weight: 700;
+}
+.hr {
+  /* text-align: start; */
+  margin-left: 2.5%;
+  width: 10%;
+  height: 1px;
+  background-color: black;
+}
+#button1{
+    display: flex;
+    margin-top: 20px;
+    background-color: white;
+    color: red;
+    align-items: center;
+    padding: 10px 40px 10px 40px;
+    border-radius: 10px;  
+    border: 1px solid red;
+}
+#button1:hover{
+    background-color: red;
+    /* padding: 12px 42px; */
+  /* background-color: rgb(5, 165, 5); */
+  /* font-size: larger; */
+  color: white;
+}
+.button2 {
+  display: flex;
+  margin-top: 20px;
+  background-color: green;
+  color: white;
+  align-items: center;
+  padding: 10px 40px 10px 40px;
+  border-radius: 10px;
+}
+.button2:hover {
+  /* padding: 12px 42px; */
+  background-color: rgb(5, 165, 5);
+  /* font-size: larger; */
+}

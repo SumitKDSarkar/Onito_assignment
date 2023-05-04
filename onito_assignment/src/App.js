@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Navbar from './Component/Navbar';
 import { AllRoutes } from './Routes/AllRoutes';
