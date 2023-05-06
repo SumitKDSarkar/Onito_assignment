@@ -1,5 +1,6 @@
 import React from "react";
 import "./FormData.css";
+// import axios from "axios"
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -7,7 +8,7 @@ import * as yup from "yup";
 
 const FormData = () => {
   const schema = yup.object().shape({
-    fullName: yup.string().required(),
+    Fname: yup.string().required(),
     dobOrAge: yup.string().required(),
     sex: yup.string().required(),
     mobile: yup
@@ -34,10 +35,38 @@ const FormData = () => {
     resolver: yupResolver(schema),
   });
 
+  const onSubmit = async(data) => {
+    // console.log("hello");
+    console.log(data);
+
+    try {
+        const response = await fetch("http://localhost:8080/user", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+        const result = await response.json();
+        console.log(result);
+      } catch (error) {
+        console.error(error);
+      }
+
+    // try {
+    //     await axios.post('http://localhost:8080/user', data)
+    //     alert('Form submitted successfully!');
+    //   } catch (error) {
+    //     console.error(error);
+    //     alert('Please check your email should be unique');
+    //   }
+    
+}
+
  
   return (
     <div className="main-div">
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <h1 className="Personal-details">Personal Details</h1>
         <hr className="hr" />
         <br />
@@ -49,7 +78,7 @@ const FormData = () => {
               type="text"
               name="Fname"
               placeholder="Enter Your Name"
-              {...register("fullName")}
+              {...register("Fname")}
             />
             <h4>
               <span>{errors.fullName?.message}</span>
@@ -59,7 +88,7 @@ const FormData = () => {
             <label className="form-label">Date of Birth / Age: </label>
             <input
               className="input_details"
-              type="date"
+              type="number"
               name="age"
               {...register("dobOrAge")}
             />
@@ -141,7 +170,7 @@ const FormData = () => {
               placeholder="Enter Emergency No."
               type="text"
               name="emergencyContact"
-              {...register("emergencyContactNumber")}
+              {...register("emergencyContact")}
             />
             <h4>
               <span>{errors.emergencyContactNumber?.message}</span>
@@ -256,7 +285,7 @@ const FormData = () => {
             <select
               className="select_details"
               name="maritalStatus"
-              {...register("marital")}
+              {...register("maritalStatus")}
             >
               <option value="Married">Married</option>
               <option value="Unmarried">Unmarried</option>
@@ -268,7 +297,7 @@ const FormData = () => {
             <select
               className="select_details"
               name="bloodGroup"
-              {...register("blood")}
+              {...register("bloodGroup")}
             >
               <option value="O">O+</option>
               <option value="O">O-</option>
@@ -292,8 +321,7 @@ const FormData = () => {
             />
           </div>
         </div>
-      </form>
-      <div className="second_main_div">
+        <div className="second_main_div">
       <button id="button1" type="">
           Cancel
         </button>
@@ -301,6 +329,8 @@ const FormData = () => {
           Submit
         </button>
       </div>
+      </form>
+     
     </div>
   );
 };
